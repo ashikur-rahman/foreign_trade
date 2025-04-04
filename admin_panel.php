@@ -86,9 +86,9 @@ $conn->close();
                     <div class="card-body">
                         <h5 class="card-title">Total Demand Loans</h5>
                         <p class="card-text fs-4"><?php echo $demandLoan_1['total_loans']; ?></p>
-                        <h6>Total Loan Amount: <?php echo number_format($demandLoan['accumulated_final_balance'], 2); ?></h6>
+                        <h6>Total Outstanding Amount: <?php echo number_format($demandLoan['accumulated_final_balance'], 2); ?></h6>
                         <h6>Total Received Amount: <?php echo number_format($demandLoan['accumulated_total_credit'], 2); ?></h6>
-                        <h6>Total Outstanding Amount: <?php echo number_format($demandLoan['accumulated_total_debit'], 2); ?></h6>
+                        <h6>Total Remaining Amount: <?php echo number_format($demandLoan['accumulated_total_debit'], 2); ?></h6>
                     </div>
                 </div>
             </div>
@@ -98,9 +98,9 @@ $conn->close();
                         <h5 class="card-title">Total Term Loans</h5>
                         <p class="card-text fs-4"><?php echo $termLoan_1['total_loans']; ?></p>
                         
-                        <h6>Total Loan Amount: <?php echo number_format($termLoan['accumulated_final_balance'], 2); ?></h6>
+                        <h6>Total Outstanding Amount: <?php echo number_format($termLoan['accumulated_final_balance'], 2); ?></h6>
                         <h6>Total Received Amount: <?php echo number_format($termLoan['accumulated_total_credit'], 2); ?></h6>
-                        <h6>Total Outstanding Amount: <?php echo number_format($termLoan['accumulated_total_debit'], 2); ?></h6>
+                        <h6>Total Remaining Amount: <?php echo number_format($termLoan['accumulated_total_debit'], 2); ?></h6>
                     </div>
                 </div>
             </div>
