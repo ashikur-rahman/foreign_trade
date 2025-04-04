@@ -91,43 +91,43 @@ $termLoan_1 = $conn->query($termLoanQuery_1)->fetch_assoc();
                         <h6>Total Remaining Amount: <?php echo number_format($demandLoan['accumulated_total_debit'], 2); ?></h6>
 
                         <table class="table table-bordered table-striped table-hover mt-4">
-    <thead class="thead-dark">
-        <tr>
-            <th>Loan Type</th>
-            <th>Sub Total</th>
-            <th>Total Recovery</th>
-            <th>Present Outstanding</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        // Database query
-        $query = "SELECT 
-                    dle.type AS loan_type,
-                    SUM(dle.sub_total) AS total_sub_total,
-                    SUM(dle.total_recovery) AS total_recovery,
-                    SUM(dle.present_outstanding) AS total_present_outstanding
-                  FROM 
-                    demand_loan_entry dle
-                  WHERE 
-                    dle.type IN ('CASH DEFERRED', 'CASH SIGHT', 'BACK TO BACK', 'Export Development Fund (EDF)', 'Other (cc)')
-                  GROUP BY 
-                    dle.type
-                  ORDER BY 
-                    FIELD(dle.type, 'CASH DEFERRED', 'CASH SIGHT', 'BACK TO BACK', 'Export Development Fund (EDF)', 'Other (cc)')";
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Loan Type</th>
+                                    <th>Sub Total</th>
+                                    <th>Total Recovery</th>
+                                    <th>Present Outstanding</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                // Database query
+                                $query = "SELECT 
+                                            dle.type AS loan_type,
+                                            SUM(dle.sub_total) AS total_sub_total,
+                                            SUM(dle.total_recovery) AS total_recovery,
+                                            SUM(dle.present_outstanding) AS total_present_outstanding
+                                        FROM 
+                                            demand_loan_entry dle
+                                        WHERE 
+                                            dle.type IN ('CASH DEFERRED', 'CASH SIGHT', 'BACK TO BACK', 'Export Development Fund (EDF)', 'Other (cc)')
+                                        GROUP BY 
+                                            dle.type
+                                        ORDER BY 
+                                            FIELD(dle.type, 'CASH DEFERRED', 'CASH SIGHT', 'BACK TO BACK', 'Export Development Fund (EDF)', 'Other (cc)')";
 
-        $result = mysqli_query($conn, $query);
-        while($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['loan_type']) . "</td>";
-            echo "<td class='text-end'>" . number_format($row['total_sub_total'], 2) . "</td>";
-            echo "<td class='text-end'>" . number_format($row['total_recovery'], 2) . "</td>";
-            echo "<td class='text-end'>" . number_format($row['total_present_outstanding'], 2) . "</td>";
-            echo "</tr>";
-        }
-        ?>
-    </tbody>
-</table>
+                                $result = mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_assoc($result)) {
+                                    echo "<tr>";
+                                    echo "<td>" . htmlspecialchars($row['loan_type']) . "</td>";
+                                    echo "<td class='text-end'>" . number_format($row['total_sub_total'], 2) . "</td>";
+                                    echo "<td class='text-end'>" . number_format($row['total_recovery'], 2) . "</td>";
+                                    echo "<td class='text-end'>" . number_format($row['total_present_outstanding'], 2) . "</td>";
+                                    echo "</tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -142,43 +142,43 @@ $termLoan_1 = $conn->query($termLoanQuery_1)->fetch_assoc();
                         <h6>Total Remaining Amount: <?php echo number_format($termLoan['accumulated_total_debit'], 2); ?></h6>
 
                         <table class="table table-bordered table-striped table-hover mt-4">
-    <thead class="thead-dark">
-        <tr>
-            <th>Loan Type</th>
-            <th>Sub Total</th>
-            <th>Total Recovery</th>
-            <th>Present Outstanding</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        // Database query
-        $query = "SELECT 
-                    dle.lc_type AS loan_type,
-                    SUM(dle.sub_total) AS total_sub_total,
-                    SUM(dle.total_recovery) AS total_recovery,
-                    SUM(dle.present_outstanding) AS total_present_outstanding
-                  FROM 
-                    term_loan dle
-                  WHERE 
-                    dle.lc_type IN ('CASH DEFERRED', 'CASH SIGHT', 'BACK TO BACK', 'Export Development Fund (EDF)', 'Other (cc)')
-                  GROUP BY 
-                    dle.lc_type
-                  ORDER BY 
-                    FIELD(dle.lc_type, 'CASH DEFERRED', 'CASH SIGHT', 'BACK TO BACK', 'Export Development Fund (EDF)', 'Other (cc)')";
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Loan Type</th>
+                                    <th>Sub Total</th>
+                                    <th>Total Recovery</th>
+                                    <th>Present Outstanding</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                // Database query
+                                $query = "SELECT 
+                                            dle.lc_type AS loan_type,
+                                            SUM(dle.sub_total) AS total_sub_total,
+                                            SUM(dle.total_recovery) AS total_recovery,
+                                            SUM(dle.present_outstanding) AS total_present_outstanding
+                                        FROM 
+                                            term_loan dle
+                                        WHERE 
+                                            dle.lc_type IN ('CASH DEFERRED', 'CASH SIGHT', 'BACK TO BACK', 'Export Development Fund (EDF)', 'Other (cc)')
+                                        GROUP BY 
+                                            dle.lc_type
+                                        ORDER BY 
+                                            FIELD(dle.lc_type, 'CASH DEFERRED', 'CASH SIGHT', 'BACK TO BACK', 'Export Development Fund (EDF)', 'Other (cc)')";
 
-        $result = mysqli_query($conn, $query);
-        while($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>" . htmlspecialchars($row['loan_type']) . "</td>";
-            echo "<td class='text-end'>" . number_format($row['total_sub_total'], 2) . "</td>";
-            echo "<td class='text-end'>" . number_format($row['total_recovery'], 2) . "</td>";
-            echo "<td class='text-end'>" . number_format($row['total_present_outstanding'], 2) . "</td>";
-            echo "</tr>";
-        }
-        ?>
-    </tbody>
-</table>
+                                $result = mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_assoc($result)) {
+                                    echo "<tr>";
+                                    echo "<td>" . htmlspecialchars($row['loan_type']) . "</td>";
+                                    echo "<td class='text-end'>" . number_format($row['total_sub_total'], 2) . "</td>";
+                                    echo "<td class='text-end'>" . number_format($row['total_recovery'], 2) . "</td>";
+                                    echo "<td class='text-end'>" . number_format($row['total_present_outstanding'], 2) . "</td>";
+                                    echo "</tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
