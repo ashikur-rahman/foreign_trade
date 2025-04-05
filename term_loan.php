@@ -217,6 +217,10 @@ echo "
 
                     <div class='row mt-2'>
                         <div class='col-md-6'>
+                            <label class='form-label'>Demand Loan No</label>
+                            <input type='text' class='form-control form-control-sm' name='dl_nos' id='edit_sanction_no_{$row['id']}' value='" . htmlspecialchars($row['dl_nos']) . "'>
+                        </div>
+                        <div class='col-md-6'>
                             <label class='form-label'>Sanction Date</label>
                             <input type='date' class='form-control form-control-sm' name='sanction_date' id='edit_sanction_date_{$row['id']}' value='" . $row['sanction_date'] . "'>
                         </div>
