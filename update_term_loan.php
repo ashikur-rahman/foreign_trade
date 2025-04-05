@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $term_loan_id = $_POST['term_loan_id'];
     $company_id = $_POST['company_id'];
     $sanction_no = $_POST['sanction_no'];
+    $dl_nos = $_POST['dl_nos'];
     $sanction_date = $_POST['sanction_date'];
     $reschedule_date = $_POST['reschedule_date'];
     $reschedule_amount = $_POST['reschedule_amount'];
@@ -90,6 +91,7 @@ $files_json = implode(",", $all_files);
     $sql = "UPDATE term_loan SET
                 company_id = ?,
                 sanction_no = ?,
+                dl_nos = ?,
                 sanction_date = ?,
                 reschedule_date = ?,
                 reschedule_amount = ?,
@@ -116,8 +118,8 @@ $files_json = implode(",", $all_files);
             WHERE id = ?";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("isssssdsssdsssssdsssssisss", 
-        $company_id, $sanction_no, $sanction_date, $reschedule_date, 
+    $stmt->bind_param("issssssdsssdsssssdsssssisss", 
+        $company_id, $sanction_no, $dl_nos, $sanction_date, $reschedule_date, 
         $reschedule_amount, $installment_frequency, $installment_amount, 
         $first_installment_date, $grace_period, $last_installment_date, 
         $special_condition, $present_outstanding, $total_recovery, 

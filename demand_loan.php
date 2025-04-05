@@ -584,45 +584,181 @@ document.addEventListener("DOMContentLoaded", function () {
                     <form action="term_loan_entry.php" method="post">
                         <!-- <input type="hidden" name="company_id" id="company_id"> -->
                         <input type="hidden" name="company_id" id="company_id_term">
-                        <div class="mb-3">
-                            <label for="sanction_no" class="form-label">Sanction No</label>
-                            <textarea class="form-control address"  name="sanction_no" ></textarea>
+                        <input type="hidden" name="direct_from_term_loan" value="0">
+
+                    <div class="row">
+                        
+
+                        <div class="col-md-6">
+                            <label class="form-label">Sanction No</label>
+                            <input type="text" class="form-control form-control-sm" name="sanction_no">
                         </div>
-                        <div class="mb-3">
-                            <label for="sanction_date" class="form-label">Sanction Date</label>
-                            <input type="date" class="form-control" name="sanction_date" required>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="form-label">Sanction Date</label>
+                            <input type="date" class="form-control form-control-sm" name="sanction_date" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="reschedule_amount" class="form-label">Reschedule Amount</label>
-                            <input type="number" step="0.01" class="form-control" name="reschedule_amount" required>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Reschedule Date</label>
+                            <input type="date" class="form-control form-control-sm" name="reschedule_date">
                         </div>
-                        <div class="mb-3">
-                            <label for="installment_frequency" class="form-label">Reschedule Frequency</label>
-                            <select class="form-control" name="installment_frequency">
-                                <option value="1">1</option>
-                                <option value="3">3</option>
-                            </select>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="form-label">Reschedule Amount</label>
+                            <input type="number" step="0.01" class="form-control form-control-sm" name="reschedule_amount" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="installment_amount" class="form-label">Installment Amount</label>
-                            <input type="number" step="0.01" class="form-control" name="installment_amount" required>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Installment Frequency</label>
+                            <div class="d-flex">
+                                <div class="form-check me-2">
+                                    <input class="form-check-input" type="radio" name="installment_frequency" value="1" required>
+                                    <label class="form-check-label">Monthly</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="installment_frequency" value="3" required>
+                                    <label class="form-check-label">Quarterly</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="first_installment_date" class="form-label">First Installment Date</label>
-                            <input type="date" class="form-control" name="first_installment_date" required>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="form-label">Installment Amount</label>
+                            <input type="number" step="0.01" class="form-control form-control-sm" name="installment_amount" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="grace_period" class="form-label">Grace Period</label>
-                            <textarea class="form-control address"  name="grace_period" ></textarea>
+
+                        <div class="col-md-6">
+                            <label class="form-label">First Installment Date</label>
+                            <input type="date" class="form-control form-control-sm" name="first_installment_date" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="last_installment_date" class="form-label">Last Installment Date</label>
-                            <input type="date" class="form-control" name="last_installment_date" required>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="form-label">Grace Period (Months)</label>
+                            <input type="number" class="form-control form-control-sm" name="grace_period" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="last_installment_date" class="form-label">Special Conditions</label>
-                            <textarea class="form-control address" name="special_condition" required></textarea>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Last Installment Date</label>
+                            <input type="date" class="form-control form-control-sm" name="last_installment_date">
                         </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <label class="form-label">Special Conditions</label>
+                        <input type="text" class="form-control form-control-sm" name="special_condition">
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="form-label">Present Outstanding</label>
+                            <input type="number" step="0.01" class="form-control form-control-sm" name="present_outstanding">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Total Recovery</label>
+                            <input type="number" step="0.01" class="form-control form-control-sm" name="total_recovery">
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="form-label">Grace Period Details</label>
+                            <input type="text" class="form-control form-control-sm" name="grace_period_details">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Sub Total</label>
+                            <input type="number" step="0.01" class="form-control form-control-sm" name="sub_total">
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="form-label">Passing Authority</label>
+                            <input type="text" class="form-control form-control-sm" name="passing_authority">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Branch Code</label>
+                            <input type="number" value="4006" class="form-control form-control-sm" name="branch_code">
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="form-label">Interest Rate</label>
+                            <input type="text" class="form-control form-control-sm" name="interest_rate">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Remarks</label>
+                            <input type="number" class="form-control form-control-sm" name="remarks">
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label">Latest State</label>
+                            <input type="text" class="form-control form-control-sm" name="latest_state">
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <label class="form-label">Classification</label>
+                        <select class="form-select form-select-sm" name="classification">
+                            <option value="">-- Select --</option>
+                            <option value="BL">BL (Bad/Loss Loan)</option>
+                            <option value="DF">DF (Doubtful Loan)</option>
+                            <option value="SS">SS (Substandard Loan)</option>
+                            <option value="SMA">SMA (Special Mention Account)</option>
+                            <option value="STD">STD (Standard Loan)</option>
+                            <option value="WR">WR (Write-off)</option>
+                        </select>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="form-label">Register Index No</label>
+                            <input type="text" class="form-control form-control-sm" name="register_index_no" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Reschedule No</label>
+                            <input type="text" class="form-control form-control-sm" name="reschedule_no" required>
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <label class="form-label">LC Type</label>
+                        <select class="form-select form-select-sm" name="lc_type" required>
+                            <option value="CASH DEFERRED">CASH DEFERRED</option>
+                            <option value="CASH SIGHT">CASH SIGHT</option>
+                            <option value="BACK TO BACK">BACK TO BACK (BTB)</option>
+                            <option value="EDF">Export Development Fund (EDF)</option>
+                            <option value="UPAS LC">Usance Payable at Sight Letter of Credit (UPAS)</option>
+                            <option value="Other (cc)">Other (cc)</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-2">
+                        <label class="form-label">Upload Loan Documents (PDF)</label>
+                        <input type="file" class="form-control form-control-sm" id="loan_documents_term" name="loan_documents[]" multiple>
+                    </div>
+
+                    
+
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                    </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
