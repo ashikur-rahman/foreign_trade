@@ -584,7 +584,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <form action="term_loan_entry.php" method="post">
                         <!-- <input type="hidden" name="company_id" id="company_id"> -->
                         <input type="hidden" name="company_id" id="company_id_term">
-                        <input type="hidden" name="direct_from_term_loan" value="0">
+                        
 
                     <div class="row">
                         
@@ -592,6 +592,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="col-md-6">
                             <label class="form-label">Sanction No</label>
                             <input type="text" class="form-control form-control-sm" name="sanction_no">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Demand Loan No</label>
+                            <input type="text" class="form-control form-control-sm" name="dl_nos" >
                         </div>
                     </div>
 
@@ -752,12 +756,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="mt-2">
                         <label class="form-label">Upload Loan Documents (PDF)</label>
                         <input type="file" class="form-control form-control-sm" id="loan_documents_term" name="loan_documents[]" multiple>
-                    </div>
-
-                    
-
-                    <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
                     </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>

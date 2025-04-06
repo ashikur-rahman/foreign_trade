@@ -7,6 +7,7 @@ include 'db_connect.php';
 
     $company_id = $_POST["company_id"];
     $sanction_no = $_POST["sanction_no"];
+    $dl_nos = $_POST["dl_nos"];
     $sanction_date = $_POST["sanction_date"];
     $reschedule_date = $_POST["reschedule_date"];
     $reschedule_amount = $_POST["reschedule_amount"];
@@ -74,18 +75,18 @@ include 'db_connect.php';
      
     // Prepare SQL statement
     $sql = "INSERT INTO term_loan 
-        (company_id, sanction_no, sanction_date, reschedule_date, reschedule_amount, 
+        (company_id, sanction_no, dl_nos, sanction_date, reschedule_date, reschedule_amount, 
          installment_frequency, installment_amount, first_installment_date, grace_period, 
          grace_period_details, last_installment_date, special_condition, present_outstanding, 
          total_recovery, sub_total, classification, register_index_no, reschedule_no, 
          lc_type, passing_authority, branch_code, interest_rate, remarks, latest_state, loan_documents) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
     $stmt = $conn->prepare($sql);
     
     // **FIXED: Corrected the type string**
-    $stmt->bind_param("isssdiissssssssssisssssss", 
-        $company_id, $sanction_no, $sanction_date, $reschedule_date, $reschedule_amount, 
+    $stmt->bind_param("issssdiissssssssssisssssss", 
+        $company_id, $sanction_no, $dl_nos, $sanction_date, $reschedule_date, $reschedule_amount, 
         $installment_frequency, $installment_amount, $first_installment_date, $grace_period, 
         $grace_period_details, $last_installment_date, $special_condition, $present_outstanding, 
         $total_recovery, $sub_total, $classification, $register_index_no, $reschedule_no, 

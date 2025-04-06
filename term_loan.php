@@ -582,6 +582,10 @@ document.addEventListener("DOMContentLoaded", function() {
                             <label class="form-label">Sanction No</label>
                             <input type="text" class="form-control form-control-sm" name="sanction_no">
                         </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Demand Loan No</label>
+                            <input type="text" class="form-control form-control-sm" name="dl_nos" >
+                        </div>
                     </div>
 
                     <div class="row mt-2">
